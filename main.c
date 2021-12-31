@@ -333,12 +333,13 @@ void shortestPath(int graphSize, const struct GRAPH_NODE_ *graph) {
 
 
     if(intMatrix[srcIndex*graphSize+destIndex]!=0){
-        printf("Dijsktra shortest path: %d \n",intMatrix[srcIndex*graphSize+destIndex]);
+        printf("Dijsktra shortest path: %d ",intMatrix[srcIndex*graphSize+destIndex]);
     }
     else{
-        printf("Dijsktra shortest path: -1 \n");
+        printf("Dijsktra shortest path: -1 ");
 
     }
+    printf("\n");
     free(intMatrix);
 }
 
