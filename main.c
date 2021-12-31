@@ -140,10 +140,7 @@ int main() {
 
         inputFlag = 0;
         ///E is for break the loop and exit the program-for testing purpose only
-        if (choose == EOF) {
-            freeGraph(graph,graphSize);
-
-
+        if (choose == 'E') {
             break;
         }
         ///P is for printing all the nodes ID-for testing purpose only
@@ -180,6 +177,7 @@ int main() {
 
         }
     }
+    freeGraph(graph,graphSize);
     return 0;
 }
 
@@ -274,7 +272,7 @@ void TSP(int graphSize, const struct GRAPH_NODE_ *graph) {///floyd warshel
     if(minTSP>99997){
         minTSP=-1;
     }
-    printf("TSP shortest path: %d \n",minTSP);
+    printf("TSP shortest path: %d\n",minTSP);
     free(intMatrix);
     free(stops);
     free(dist);
@@ -335,10 +333,10 @@ void shortestPath(int graphSize, const struct GRAPH_NODE_ *graph) {
 
 
     if(intMatrix[srcIndex*graphSize+destIndex]!=0){
-        printf("Dijsktra shortest path: %d ",intMatrix[srcIndex*graphSize+destIndex]);
+        printf("Dijsktra shortest path: %d",intMatrix[srcIndex*graphSize+destIndex]);
     }
     else{
-        printf("Dijsktra shortest path: -1 ");
+        printf("Dijsktra shortest path: -1");
 
     }
     free(intMatrix);
@@ -542,7 +540,7 @@ int printGraph(int graphSize, const struct GRAPH_NODE_ *graph, int inputFlag) {
         pedge current=graph[i].edges;
         while (current != NULL) {
             if(current->weight!=-2){
-                printf("src: %d dest: %d weight: %d\n", graph[i].node_num,current->endpoint,current->weight);
+                printf("src: %d dest: %d weight: %d \n", graph[i].node_num,current->endpoint,current->weight);
             }
             current = current->next;
         }
