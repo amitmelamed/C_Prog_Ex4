@@ -123,7 +123,6 @@ void freeGraph(pnode graph,int graphSize){
 int main() {
     char choose;
     int graphSize = 1;
-    scanf(" %c",&choose);
 
     struct GRAPH_NODE_* graph = (pnode) malloc(graphSize * sizeof(node));
     graph[0].edges=(pedge) malloc(sizeof (edge));
@@ -132,13 +131,15 @@ int main() {
     graph[0].edges->endpoint=-1;
     graph[0].node_num=0;
 
-    int inputFlag = 1;
-    while (getchar() != EOF) {
+    int inputFlag = 0;
+    while (1==1) {
         if (inputFlag == 0) {
             scanf(" %c", &choose);
         }
-
         inputFlag = 0;
+        if(getchar()==EOF){
+            break;
+        }
         ///E is for break the loop and exit the program-for testing purpose only
         if (choose == 'E') {
             break;
