@@ -272,7 +272,8 @@ void TSP(int graphSize, const struct GRAPH_NODE_ *graph) {///floyd warshel
     if(minTSP>99997){
         minTSP=-1;
     }
-    printf("TSP shortest path: %d \n",minTSP);
+    printf("TSP shortest path: %d ",minTSP);
+    printf("\n");
     free(intMatrix);
     free(stops);
     free(dist);
