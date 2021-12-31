@@ -1,15 +1,19 @@
-CC=gcc
-AR=ar
-OBJECTS_MAIN=main.o
-FLAGS= -Wall -g
+.PHONY: all clean loopd loops recursived recursives 
 
-all: progmains
-progmains: $(OBJECTS_MAIN)
-	$(CC) $(FLAGS) -o graph $(OBJECTS_MAIN)
+CC = gcc
+AR = ar -rcs
+FLAGS = -Wall -g
+
+###creation of .o files:###
 main.o: main.c
-	$(CC) $(FLAGS) -c main.c 
+	$(CC) $(FLAGS) -c main.c
 
-.PHONY: clean all
+###finished files###
+graph: main.o
+	$(CC) $(FLAGS) main.o -o graph
+
+###utilitis###
+all: graph
 
 clean:
 	rm -f *.o *.a *.so graph
