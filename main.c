@@ -416,7 +416,15 @@ void addNewVertex(char *choose, int *graphSize, struct GRAPH_NODE_ **graph, int 
     }
     ///case 1: node exist
     if(existFlag==1){
-        free((*graph)[workingNodeIndex].edges);
+        pedge tmp;
+        while ((*graph)[workingNodeIndex].edges != NULL)
+        {
+            tmp = (*graph)[workingNodeIndex].edges;
+            (*graph)[workingNodeIndex].edges = (*graph)[workingNodeIndex].edges->next;
+            free(tmp);
+        }
+
+        (*graph)[workingNodeIndex].edges=NULL;
 
         (*graph)[workingNodeIndex].edges=(pedge) malloc(sizeof(edge));
         (*graph)[workingNodeIndex].edges->next=NULL;
